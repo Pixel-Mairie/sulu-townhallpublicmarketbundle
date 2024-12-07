@@ -14,8 +14,7 @@
     }
   ],
   "require": {
-    "php": "^8.1",
-    "sulu/automation-bundle": "^2.1",
+    "php": "^8.2",
     "pixelmairie/sulu-townhallbundle": "^2.6",
     "sulu/sulu": "^2.6"
   },
