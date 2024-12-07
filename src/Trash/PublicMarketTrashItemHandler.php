@@ -97,19 +97,6 @@ class PublicMarketTrashItemHandler implements StoreTrashItemHandlerInterface, Re
         return $publicMarket;
     }
 
-    private function createRoute(EntityManagerInterface $manager, int $id, string $slug, string $class): void
-    {
-        $route = new Route();
-        $route->setPath($slug);
-        $route->setLocale('fr');
-        $route->setEntityClass($class);
-        $route->setEntityId((string) $id);
-        $route->setHistory(false);
-        $route->setCreated(new \DateTime());
-        $route->setChanged(new \DateTime());
-        $manager->persist($route);
-    }
-
     public function getConfiguration(): RestoreConfiguration
     {
         return new RestoreConfiguration(null, PublicMarketAdmin::EDIT_FORM_VIEW, [

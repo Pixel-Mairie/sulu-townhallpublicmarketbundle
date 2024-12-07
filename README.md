@@ -1,26 +1,27 @@
+<center>
+
+<img src="src/Resources/documentation/logo.svg" width="250">
+
 # Public market for Town Hall Bundle
 
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/Pixel-Mairie/sulu-townhallpublicmarketbundle) 
 [![Dependency](https://img.shields.io/badge/sulu-2.6-cca000.svg)](https://sulu.io/)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Pixel-Mairie_sulu-townhallpublicmarketbundle&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Pixel-Mairie_sulu-townhallpublicmarketbundle)
 
-## Presentation
-A Sulu bundle to manage public markets.
+</center>
 
-## Features
+## 📝 Presentation
+
+This bundle for the Sulu CMS manages public contracts for town halls.
+
+## ✅ Features
 
 * Public market
 * List of entities (via smart content)
 * Activity log
 * Trash
 
-## Requirement
-* PHP >= 8.1
-* Sulu >= 2.6
-* Symfony >= 5.4
-* Composer 2
-
-## Installation
+## 🚀 Installation
 ### Install the bundle
 
 Execute the following [composer](https://getcomposer.org/) command to add the bundle to the dependencies of your
@@ -57,7 +58,7 @@ townhall.publics_markets_api:
   name_prefix: townhall.
 ``` 
 
-## Use
+## 👍 Use
 ### Add/Edit
 Go to the "Town hall" section in the administration interface. Then, click on "Public market".
 To add, simply click on "Add". Fill the fields that are needed for your use.
@@ -98,7 +99,7 @@ To restore a public market, click on the clock at the left. Confirm the restore.
 
 To remove permanently a public market, check all the public markets you want to remove and click on "Delete".
 
-## Contributing
+## 🤝 Contributing
 
 You can contribute to this bundle. The only thing you must do is respect the coding standard we implement.
 You can find them in the `ecs.php` file.
