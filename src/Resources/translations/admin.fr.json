@@ -1,0 +1,14 @@
+{
+  "townhall.publics_markets": "Marchés publics",
+  "townhall.archived_market": "Marché archivé",
+  "townhall.closed_market": "Marché fermé",
+  "townhall.ongoing_market": "Marché en cours",
+  "townhall.awarded_market": "Marché attribué",
+  "townhall.public_market.list": "Liste des marchés publics",
+  "townhall.public_market.emptyText": "Sélectionner un marché public",
+  "sulu_activity.resource.publics_markets": "Marché public",
+  "sulu_activity.description.publics_markets.created": "{userFullName} a créé le marché public \"{resourceTitle}\"",
+  "sulu_activity.description.publics_markets.modified": "{userFullName} a modifié le marché public \"{resourceTitle}\"",
+  "sulu_activity.description.publics_markets.removed": "{userFullName} a supprimé le marché public \"{resourceTitle}\"",
+  "sulu_activity.description.publics_markets.restored": "{userFullName} a restauré le marché public \"{resourceTitle}\""
+}

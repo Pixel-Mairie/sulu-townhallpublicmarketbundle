@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<form xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/form-1.0.xsd"
+>
+    <key>public_market_details</key>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title>townhall.title</title>
+            </meta>
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        <property name="routePath" type="route" mandatory="true">
+            <meta>
+                <title>sulu_admin.url</title>
+            </meta>
+            <params>
+                <param name="entity_class" value="Pixel\TownHallPublicMarketBundle\Entity\PublicMarket"/>
+                <param name="route_schema" value="/public-market/{implode('-', object)}"/>
+            </params>
+        </property>
+        
+        <property name="publishedAt" type="date" colspan="6">
+            <meta>
+                <title>townhall.publishedAt</title>
+            </meta>
+        </property>
+
+        <property name="status" type="single_category_selection" mandatory="true" colspan="6">
+            <meta>
+                <title>townhall.status</title>
+            </meta>
+            <params>
+                <param name="request_parameters" type="collection">
+                    <param name="rootKey" value="publics_markets"/>
+                </param>
+            </params>
+        </property>
+
+        <property name="description" type="text_editor" mandatory="true">
+            <meta>
+                <title>townhall.description</title>
+            </meta>
+        </property>
+
+        <property name="documents" type="media_selection">
+            <meta>
+                <title>townhall.documents</title>
+            </meta>
+            <params>
+                <param name="types" value="document"/>
+            </params>
+        </property>
+    </properties>
+</form>

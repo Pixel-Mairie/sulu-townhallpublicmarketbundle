@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <!-- Admin -->
+        <service id="pixel_townhall.public_market" class="Pixel\TownHallPublicMarketBundle\Admin\PublicMarketAdmin">
+            <argument type="service" id="sulu_admin.view_builder_factory"/>
+            <argument type="service" id="sulu_security.security_checker"/>
+            <argument type="service" id="sulu_core.webspace.webspace_manager"/>
+            <argument type="service" id="sulu_activity.activity_list_view_builder_factory"/>
+            <argument type="service" id="sulu_reference.reference_list_view_builder_factory"/>
+            <tag name="sulu.admin"/>
+            <tag name="sulu.context" context="admin"/>
+        </service>
+
+        <!-- Common -->
+        <service id="pixel_townhall_public_market.list.representation" public="true"
+                 class="Pixel\TownHallPublicMarketBundle\Common\DoctrineListRepresentationFactory">
+            <argument type="service" id="sulu_core.rest_helper"/>
+            <argument type="service" id="sulu_core.list_rest_helper"/>
+            <argument type="service" id="sulu_core.doctrine_list_builder_factory"/>
+            <argument type="service" id="sulu_core.list_builder.field_descriptor_factory"/>
+
+            <tag name="sulu.context" context="admin"/>
+        </service>
+
+        <!-- Content -->
+        <service id="townhall_publc_market.smart_content.data_provider.example" class="Pixel\TownHallPublicMarketBundle\Content\PublicMarketDataProvider">
+            <argument type="service" id="townhall.public_market_repository"/>
+            <argument type="service" id="sulu_core.array_serializer"/>
+            <argument type="service" id="request_stack"/>
+            <tag name="sulu.smart_content.data_provider" alias="public_market"/>
+        </service>
+
+        <!-- Content/Type -->
+        <service id="sulu_decree.single_public_market_selection" class="Pixel\TownHallPublicMarketBundle\Content\Type\SinglePublicMarketSelection">
+            <argument type="service" id="doctrine.orm.default_entity_manager"/>
+
+            <tag name="sulu.content.type" alias="single_public_market_selection" />
+        </service>
+
+        <service id="sulu_decree.public_market_selection" class="Pixel\TownHallPublicMarketBundle\Content\Type\PublicMarketSelection">
+            <argument type="service" id="doctrine.orm.default_entity_manager"/>
+
+            <tag name="sulu.content.type" alias="public_market_selection"/>
+        </service>
+
+        <!-- Controller -->
+        <service id="pixel_townhall.publics_markets_route_controller"
+                 class="Pixel\TownHallPublicMarketBundle\Controller\Admin\PublicMarketController"
+                 public="true">
+            <argument type="service" id="pixel_townhall_public_market.list.representation"/>
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+            <argument type="service" id="townhall.public_market_repository"/>
+            <argument type="service" id="sulu_category.category_manager"/>
+            <argument type="service" id="sulu_route.manager.route_manager"/>
+            <argument type="service" id="sulu.repository.route"/>
+            <argument type="service" id="sulu_core.webspace.webspace_manager"/>
+            <argument type="service" id="sulu_activity.domain_event_collector"/>
+            <argument type="service" id="sulu_trash.trash_manager"/>
+            <argument type="service" id="fos_rest.view_handler.default"/>
+            <argument type="service" id="security.token_storage"/>
+
+            <tag name="sulu.context" context="admin"/>
+        </service>
+
+        <!-- Preview -->
+        <service id="pixel_townhall.public_market_object_provider"
+                 class="Pixel\TownHallPublicMarketBundle\Preview\PublicMarketObjectProvider"
+                 public="true">
+            <argument type="service" id="townhall.public_market_repository"/>
+            <tag name="sulu_preview.object_provider" provider-key="publics_markets"/>
+        </service>
+
+        <!-- Repository -->
+        <service id="townhall.public_market_repository" class="Pixel\TownHallPublicMarketBundle\Repository\PublicMarketRepository" public="true" lazy="true">
+            <argument type="service" id="doctrine.orm.default_entity_manager"/>
+            <argument type="service">
+                <service class="Doctrine\ORM\Mapping\ClassMetadata">
+                    <argument>Pixel\TownHallPublicMarketBundle\Entity\PublicMarket</argument>
+                    <factory service="doctrine.orm.default_entity_manager" method="getClassMetadata"/>
+                </service>
+            </argument>
+        </service>
+
+        <!-- Routing -->
+        <service id="sulu_public_market.routing_provider" public="true" class="Pixel\TownHallPublicMarketBundle\Routing\PublicMarketRouteDefaultsProvider">
+            <argument type="service" id="townhall.public_market_repository"/>
+            <tag name="sulu_route.defaults_provider"/>
+        </service>
+
+        <!-- Trash -->
+        <service id="sulu_decree.public_market_trash_item_handler" class="Pixel\TownHallPublicMarketBundle\Trash\PublicMarketTrashItemHandler">
+            <argument type="service" id="sulu_trash.trash_item_repository"/>
+            <argument type="service" id="doctrine.orm.default_entity_manager"/>
+            <argument type="service" id="sulu_trash.doctrine_restore_helper"/>
+            <argument type="service" id="sulu_activity.domain_event_collector"/>
+
+            <tag name="sulu_trash.store_trash_item_handler"/>
+            <tag name="sulu_trash.restore_trash_item_handler"/>
+            <tag name="sulu_trash.restore_configuration_provider"/>
+        </service>
+    </services>
+</container>
