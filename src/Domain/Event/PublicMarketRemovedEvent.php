@@ -10,6 +10,7 @@ use Sulu\Bundle\ActivityBundle\Domain\Event\DomainEvent;
 class PublicMarketRemovedEvent extends DomainEvent
 {
     private int $id;
+
     private string $title;
 
     public function __construct(int $id, string $title)
