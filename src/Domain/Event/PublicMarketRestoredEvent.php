@@ -9,6 +9,8 @@ use Sulu\Bundle\ActivityBundle\Domain\Event\DomainEvent;
 
 class PublicMarketRestoredEvent extends DomainEvent
 {
+    use PublicMarketEventTrait;
+
     private PublicMarket $publicMarket;
 
     /**
@@ -26,38 +28,13 @@ class PublicMarketRestoredEvent extends DomainEvent
         $this->payload = $payload;
     }
 
-    public function getPublicMarket(): PublicMarket
-    {
-        return $this->publicMarket;
-    }
-
-    public function getEventPayload(): ?array
-    {
-        return $this->payload;
-    }
-
     public function getEventType(): string
     {
         return 'restored';
     }
 
-    public function getResourceKey(): string
+    public function getEventPayload(): ?array
     {
-        return PublicMarket::RESOURCE_KEY;
-    }
-
-    public function getResourceId(): string
-    {
-        return (string) $this->publicMarket->getId();
-    }
-
-    public function getResourceTitle(): ?string
-    {
-        return $this->publicMarket->getTitle();
-    }
-
-    public function getResourceSecurityContext(): ?string
-    {
-        return PublicMarket::SECURITY_CONTEXT;
+        return $this->payload;
     }
 }

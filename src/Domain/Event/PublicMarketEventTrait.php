@@ -5,25 +5,9 @@ declare(strict_types=1);
 namespace Pixel\TownHallPublicMarketBundle\Domain\Event;
 
 use Pixel\TownHallPublicMarketBundle\Entity\PublicMarket;
-use Sulu\Bundle\ActivityBundle\Domain\Event\DomainEvent;
 
-class PublicMarketRemovedEvent extends DomainEvent
+trait PublicMarketEventTrait
 {
-    private int $id;
-    private string $title;
-
-    public function __construct(int $id, string $title)
-    {
-        parent::__construct();
-        $this->id = $id;
-        $this->title = $title;
-    }
-
-    public function getEventType(): string
-    {
-        return 'removed';
-    }
-
     public function getResourceKey(): string
     {
         return PublicMarket::RESOURCE_KEY;
@@ -31,12 +15,12 @@ class PublicMarketRemovedEvent extends DomainEvent
 
     public function getResourceId(): string
     {
-        return (string) $this->id;
+        return (string) $this->publicMarket->getId();
     }
 
     public function getResourceTitle(): ?string
     {
-        return $this->title;
+        return $this->publicMarket->getTitle();
     }
 
     public function getResourceSecurityContext(): ?string
