@@ -1,0 +1,47 @@
+{
+  "name": "pixelmairie/sulu-townhallpublicmarketbundle",
+  "type": "sulu-bundle",
+  "description": "Manage public market for town hall on Sulu",
+  "keywords": [
+    "sulu",
+    "suluCms"
+  ],
+  "homepage": "https://github.com/Pixel-Mairie/sulu-townhallpublicmarketbundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pixel Mairie"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "sulu/automation-bundle": "^2.1",
+    "pixelmairie/sulu-townhallbundle": "^2.6",
+    "sulu/sulu": "^2.6"
+  },
+  "require-dev": {
+    "dantleech/phpcr-migrations-bundle": "^1.3",
+    "jackalope/jackalope-doctrine-dbal": "^1.3.2",
+    "phpstan/extension-installer": "^1.2",
+    "phpstan/phpstan": "^1.9",
+    "phpstan/phpstan-symfony": "^1.2",
+    "rector/rector": "^0.18.13",
+    "sulu/sulu-rector": "^0.1.6",
+    "symplify/easy-coding-standard": "^11.1"
+  },
+  "scripts": {
+
+  },
+  "autoload": {
+    "psr-4": {
+      "Pixel\\TownHallPublicMarketBundle\\": "src"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "php-http/discovery": true
+    }
+  }
+}
