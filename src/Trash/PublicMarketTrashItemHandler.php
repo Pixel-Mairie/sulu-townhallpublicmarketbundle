@@ -93,8 +93,7 @@ class PublicMarketTrashItemHandler implements StoreTrashItemHandlerInterface, Re
         );
 
         $this->doctrineRestoreHelper->persistAndFlushWithId($publicMarket, $publicMarketId);
-        $this->createRoute($this->entityManager, $publicMarketId, $publicMarket->getRoutePath(), PublicMarket::class);
-        $this->entityManager->flush();
+
         return $publicMarket;
     }
 

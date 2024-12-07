@@ -149,9 +149,10 @@ class PublicMarketController extends AbstractRestController implements ClassReso
         $isActive = $data['isActive'] ?? null;
         $publishedAt = $data['publishedAt'] ?? null;
         $seo = (isset($data['ext']['seo'])) ? $data['ext']['seo'] : null;
+        $status = (isset($data['status']['id'])) ? $data['status']['id'] : $data['status'];
 
         $entity->setTitle($data['title']);
-        $entity->setStatus($this->categoryManager->findById($data['status']));
+        $entity->setStatus($this->categoryManager->findById($status));
         $entity->setRoutePath($data['routePath']);
         $entity->setDescription($data['description']);
         $entity->setDocuments($documents);
