@@ -15,7 +15,7 @@
   ],
   "require": {
     "php": "^8.2",
-    "pixelmairie/sulu-townhallbundle": "^2.6",
+    "pixelmairie/sulu-townhallbundle": "^3.0",
     "sulu/sulu": "^2.6"
   },
   "require-dev": {
