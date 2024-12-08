@@ -9,7 +9,7 @@ Public market for Town Hall Bundle
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/Pixel-Mairie/sulu-townhallpublicmarketbundle)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.2-green)](https://php.net/)
 [![Dependency](https://img.shields.io/badge/sulu-%3E%3D%202.6-green.svg)](https://sulu.io/)
-[![Dependency](https://img.shields.io/badge/symfony-%3E%3D%206.4-green.svg)](https://sulu.io/)
+[![Dependency](https://img.shields.io/badge/symfony-%3E%3D%206.4-green.svg)](https://symfony.com//)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Pixel-Mairie_sulu-townhallpublicmarketbundle&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Pixel-Mairie_sulu-townhallpublicmarketbundle)
 
 </div>
@@ -46,12 +46,6 @@ Enable the bundle by adding it to the list of registered bundles in the `config/
      Pixel\TownHallPublicMarketBundle\TownHallPublicMarketBundle::class => ['all' => true],
  ];
  ```
-
-### Update schema
-
-```shell script
-bin/console do:sch:up --force
-```
 
 ## Bundle Config
 
